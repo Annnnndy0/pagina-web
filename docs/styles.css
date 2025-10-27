@@ -1,529 +1,260 @@
-/* =======================
-   Variables Globales y Reseteo
-   ======================== */
-:root {
-    --color-primary: #5a7a72; /* Verde principal */
-    --color-primary-dark: #4a6a62;
-    --color-secondary: #004a6e; /* Azul oscuro tarjeta */
-    --color-dark: #333333;
-    --color-light: #ffffff;
-    --color-gray: #f9f9f9;
-    --color-text: #555555;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --border-radius: 8px;
-    --max-width: 1200px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* --- ESTILOS GLOBALES --- */
 body {
-    font-family: var(--font-family);
-    color: var(--color-text);
-    line-height: 1.6;
-    background-color: var(--color-light);
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Añadimos un box-sizing global para un manejo de tamaño más fácil */
+    box-sizing: border-box; 
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-primary);
+/* --- ENCABEZADO (OPCIONES) --- */
+#opciones {
+    display: flex; /* Usamos Flexbox */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: space-between; /* Espaciamos los elementos */
+    padding: 10px 20px; /* Añadimos padding */
+    border-bottom: 1px solid #f0f0f0;
+    /* margin-bottom: 20px; (Eliminado) */
 }
 
-ul {
-    list-style: none;
-}
-
-h1, h2, h3, h4 {
-    color: var(--color-dark);
-    line-height: 1.2;
-    margin-bottom: 0.5em;
-}
-
-h1 { font-size: 3rem; } /* 48px */
-h2 { font-size: 2.25rem; } /* 36px */
-h3 { font-size: 1.5rem; } /* 24px */
-
-p {
-    margin-bottom: 1em;
-}
-
-.container {
-    width: 90%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3rem auto;
-}
-
-.section-header .eyebrow {
-    text-transform: uppercase;
-    color: var(--color-primary);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-/* =======================
-   Botones y Enlaces
-   ======================== */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    border: 2px solid var(--color-primary);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
-}
-
-.link-arrow {
-    font-weight: 600;
-    color: var(--color-primary);
-    transition: transform 0.3s ease;
-}
-
-.link-arrow::after {
-    content: ' →';
-}
-
-.link-arrow:hover {
-    transform: translateX(4px);
-}
-
-/* =======================
-   Header / Navegación
-   ======================== */
-header {
-    background-color: var(--color-light);
-    border-bottom: 1px solid #eee;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-dark);
-}
-
-header nav ul {
-    display: flex;
-    gap: 1.5rem;
-}
-
-header nav a {
-    color: var(--color-text);
-    font-weight: 500;
-    padding: 0.5rem;
-}
-
-header nav a:hover {
-    color: var(--color-primary);
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-bar {
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    padding: 0.6rem 0.8rem;
-    font-size: 0.9rem;
-}
-
-/* =======================
-   Sección Héroe
-   ======================== */
-.hero {
-    padding: 4rem 0;
-}
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-image {
-    flex: 1;
-}
-
-.hero-image img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    object-fit: cover;
-    max-height: 450px;
-}
-
-.hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-/* =======================
-   Sección Intro
-   ======================== */
-.intro {
-    padding: 4rem 0;
-    background-color: var(--color-gray);
-}
-
-.intro-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-.intro-content {
-    flex: 1;
-}
-
-.intro-image {
-    flex: 1;
-}
-
-.intro-image img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    object-fit: cover;
-    max-height: 450px;
-}
-
-.stats {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.stat-item h3 {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-}
-
-.intro-actions {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-/* =======================
-   Sección "Why Us" (Features)
-   ======================== */
-.why-us {
-    padding: 4rem 0;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.feature-card {
-    text-align: left;
-}
-
-.feature-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    font-size: 1.25rem;
-}
-
-/* =======================
-   Sección Razones
-   ======================== */
-.reasons {
-    padding: 4rem 0;
-    background-color: var(--color-gray);
-}
-
-.reasons-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: stretch; /* Asegura que las tarjetas tengan la misma altura */
-}
-
-.reason-card {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    position: relative;
-    color: var(--color-light);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Alinea contenido al final */
-    min-height: 450px; /* Altura fija para consistencia */
-}
-
-.reason-card .reason-content {
-    padding: 2rem;
-    position: relative;
-    z-index: 3;
-}
-
-.reason-card.card-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
-    z-index: 2;
-}
-
-.reason-card.card-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-.reason-card.card-solid-blue {
-    background-color: var(--color-secondary);
-    justify-content: center; /* Centra el contenido verticalmente */
-}
-
-.reason-card h3 {
-    color: var(--color-light);
-    font-size: 1.75rem;
-}
-
-.reason-card p {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.reason-card .link-arrow {
-    color: var(--color-light);
-    font-weight: 700;
-}
-
-/* =======================
-   Sección Testimonios
-   ======================== */
-.testimonials {
-    padding: 4rem 0;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.testimonial-card {
-    border: 1px solid #eee;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-company {
-    font-weight: 600;
-    color: var(--color-dark);
-    margin-bottom: 1rem;
-    /* Aquí iría el logo de la compañía, ej. background-image */
-}
-
-.testimonial-card p {
-    flex-grow: 1; /* Empuja el footer del autor hacia abajo */
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--color-dark);
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.testimonial-author img {
-    width: 50px;
-    height: 50px;
+#opciones button {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    border-width: 1.3px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#opciones #menu {
+    /* margin-right: 40%; (Eliminado) */
+}
+
+#opciones b {
+    font-size: 35px;
+    /* margin-right: 35%; (Eliminado) */
+    /* Centramos el título (truco con flexbox) */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Contenedor para los iconos de la derecha */
+#opciones .iconos-derecha {
+    display: flex;
+    gap: 10px;
+}
+
+/* Movemos los botones al contenedor en el HTML
+   (Si no puedes cambiar el HTML, esta es la segunda mejor opción) */
+#opciones #cuenta {
+    margin-left: auto; /* Empuja los iconos a la derecha */
+    /* float: right; (Eliminado) */
+}
+
+#opciones #carrito {
+    margin-left: 10px;
+    /* float: right; (Eliminado) */
+}
+
+/* --- BARRA DE ACCESOS/FILTROS --- */
+#accesos {
+    display: flex; /* Usamos Flexbox */
+    align-items: center;
+    overflow-x: auto; /* ¡CLAVE! Permite scroll horizontal en móvil */
+    white-space: nowrap; /* Evita que los botones salten de línea */
+    padding: 10px 20px;
+    margin-left: 0; /* margin-left: 30px; (Eliminado) */
+    border-bottom: 1px solid black;
+}
+
+#accesos button {
+    height: 30px;
+    border-radius: 15px;
+    border-width: 1.3px;
+    background-color: transparent;
+    margin: 0 5px; /* Espacio simple entre botones */
+    cursor: pointer;
+    flex-shrink: 0; /* Evita que los botones se encojan */
+    /* margin-bottom: 20px; (Eliminado, el padding está en el padre) */
+}
+
+#accesos #hombres {
+    margin-left: 5px; /* (Eliminamos el margin-left: 60%) */
+}
+
+/* --- SECCIÓN CENTRAL (HERO) --- */
+#centro {
+    width: 100%; /* Usamos 100% en lugar de 100vw para evitar overflow */
+    padding: 20px 0;
+    text-align: center;
+}
+
+#centro h2 {
+    margin: 0;
+    padding: 0 5%;
+    text-align: right;
+    /* margin-bottom: -90px; (Eliminado) */
+    /* margin-left: 70%; (Eliminado) */
+}
+
+#centro h1 {
+    font-size: 150px;
+    margin: -60px 0; /* Ajustamos el negativo */
+    text-align: center;
+}
+
+#centro img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto; /* Mejor para responsividad */
+}
+
+/* --- TÍTULO "LO MAS POPULAR" --- */
+h2 {
+    font-size: 24px;
+    padding-left: 20px;
+    margin-top: 40px;
+}
+
+/* --- TARJETAS DE PRODUCTO (Ya estaba casi perfecto) --- */
+.product-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px; /* Añadido padding horizontal */
+}
+
+.product-card {
+    flex: 0 0 auto;
+    width: 250px;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-image-container {
+    position: relative;
+    padding-top: 100%;
+}
+
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.testimonial-author strong {
-    color: var(--color-dark);
-}
-
-.testimonial-author span {
-    font-size: 0.9rem;
-}
-
-/* =======================
-   Footer
-   ======================== */
-footer {
-    background-color: var(--color-gray);
-    padding-top: 4rem;
-    font-size: 0.9rem;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.5fr repeat(4, 1fr);
-    gap: 2rem;
-}
-
-.footer-column h4 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--color-dark);
-}
-
-.footer-column ul li {
-    margin-bottom: 0.75rem;
-}
-
-.footer-column ul a {
-    color: var(--color-text);
-}
-
-.footer-column ul a:hover {
-    color: var(--color-primary);
-}
-
-.footer-bottom {
+.favorite-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid #ddd;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 14px;
+    transform: rotate(45deg);
 }
 
-.footer-links-bottom {
-    display: flex;
-    gap: 1.5rem;
+.product-info {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
 }
 
-.footer-links-bottom a {
-    color: var(--color-text);
-    font-size: 0.85rem;
+.product-price {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;
 }
 
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
 
-.footer-social a {
-    color: var(--color-text);
-    font-size: 1.1rem;
-}
+/* ############################################### */
+/* ---               RESPONSIVO                  --- */
+/* --- Estilos para pantallas de 600px o menos --- */
+/* ############################################### */
 
-/* =======================
-   Responsividad (Básica)
-   ======================== */
-@media (max-width: 992px) {
-    .hero-container, .intro-container {
-        flex-direction: column;
-    }
-    
-    .hero-content {
-        text-align: center;
+@media (max-width: 600px) {
+
+    /* --- ENCABEZADO MÓVIL --- */
+    #opciones {
+        padding: 10px;
     }
 
-    .hero-actions {
-        justify-content: center;
+    #opciones b {
+        font-size: 24px; /* Título más pequeño */
+        /* Quitamos el centrado absoluto para que fluya */
+        position: static;
+        transform: none;
+        margin-left: 15px; 
     }
 
-    .intro-container {
-        flex-direction: column-reverse; /* Pone la imagen arriba */
+    #opciones button {
+        width: 35px;
+        height: 35px;
     }
 
-    .intro-content {
-        text-align: center;
+    /* --- BARRA ACCESOS MÓVIL --- */
+    /* (Ya es responsiva gracias a overflow-x: auto) */
+    #accesos {
+        padding: 10px;
     }
 
-    .stats, .intro-actions {
-        justify-content: center;
+    /* --- SECCIÓN CENTRAL MÓVIL --- */
+    #centro h2 {
+        text-align: center; /* Centramos el h2 */
+        padding: 0 10px;
+        font-size: 18px;
     }
 
-    .features-grid, .reasons-grid, .testimonials-grid {
-        grid-template-columns: 1fr 1fr;
+    #centro h1 {
+        font-size: 80px; /* Reducimos drásticamente el h1 */
+        margin: 10px 0; /* Margen normal */
     }
 
-    .footer-container {
-        grid-template-columns: 1fr 1fr 1fr;
+    #centro img {
+        width: 90%; /* Hacemos la imagen más grande */
     }
 
-    .footer-logo {
-        grid-column: 1 / -1; /* Ocupa todo el ancho */
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-
-    header nav {
-        display: none; /* Simplificación: ocultar nav en móvil */
+    /* --- TÍTULO "LO MAS POPULAR" MÓVIL --- */
+    h2 {
+        font-size: 20px;
+        padding-left: 10px;
     }
 
-    .features-grid, .reasons-grid, .testimonials-grid {
-        grid-template-columns: 1fr;
+    /* --- TARJETAS MÓVIL --- */
+    .product-grid {
+        padding: 10px;
+        gap: 15px;
     }
 
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
+    .product-card {
+        width: 200px; /* Tarjetas un poco más pequeñas */
     }
 }
